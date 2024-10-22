@@ -83,7 +83,7 @@
 
             <Button
                 android:id="@+id/greetButton"
-                style="?android:attr/buttonBarButtonStyle"
+                style="?android:attr/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Greet"
@@ -91,7 +91,7 @@
 
             <Button
                 android:id="@+id/clearButton"
-                style="?android:attr/buttonBarButtonStyle"
+                style="?android:attr/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Clear"/>
@@ -131,8 +131,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="18sp"
+            android:height="500px"
             android:gravity="center"
             android:layout_marginBottom="16dp"/>
 
+        <Button
+            android:id="@+id/changeButton"
+            style="?android:attr/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Change Activity" />
     </LinearLayout>
 </ScrollView>

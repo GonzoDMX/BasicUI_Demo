@@ -1,5 +1,6 @@
 package com.example.basicui_demo
 
+import android.content.Intent
 import android.graphics.Color
 import android.icu.text.SimpleDateFormat
 import android.os.Bundle
@@ -13,6 +14,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.CheckBox
@@ -33,6 +35,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var nameEditText: TextInputEditText
     private lateinit var greetButton: Button
     private lateinit var clearButton: Button
+    private lateinit var changeButton: Button
     private lateinit var outputTextView: TextView
     private lateinit var showTimeCheckBox: CheckBox
     private lateinit var greetingTypeRadioGroup: RadioGroup
@@ -41,6 +44,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var darkModeSwitch: SwitchMaterial
     private lateinit var fontSizeSlider: Slider
     private lateinit var colorChipGroup: ChipGroup
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         nameEditText = findViewById(R.id.nameEditText)
         greetButton = findViewById(R.id.greetButton)
         clearButton = findViewById(R.id.clearButton)
+        changeButton = findViewById(R.id.changeButton)
         outputTextView = findViewById(R.id.outputTextView)
         showTimeCheckBox = findViewById(R.id.showTimeCheckBox)
         greetingTypeRadioGroup = findViewById(R.id.greetingTypeRadioGroup)
@@ -79,6 +84,7 @@ class MainActivity : AppCompatActivity() {
     private fun setupListeners() {
         greetButton.setOnClickListener { generateGreeting() }
         clearButton.setOnClickListener { clearFields() }
+        changeButton.setOnClickListener { changeActivity() }
 
         darkModeSwitch.setOnCheckedChangeListener { _, isChecked ->
             AppCompatDelegate.setDefaultNightMode(
@@ -131,5 +137,10 @@ class MainActivity : AppCompatActivity() {
         fontSizeSlider.value = 18f
         colorChipGroup.clearCheck()
         progressBar.progress = 0
+    }
+
+    private fun changeActivity() {
+        val intent = Intent(this, SecondActivity::class.java)
+        startActivity(intent)
     }
 }
