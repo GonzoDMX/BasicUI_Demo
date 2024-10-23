@@ -11,7 +11,6 @@ import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import com.google.android.material.chip.ChipGroup
 import com.google.android.material.slider.Slider
 import com.google.android.material.switchmaterial.SwitchMaterial
 import com.google.android.material.textfield.TextInputEditText
@@ -117,7 +116,11 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun changeActivity() {
-        val intent = Intent(this, SecondActivity::class.java)
+        val message = outputTextView.text.toString()
+        val intent = Intent(this, SecondActivity::class.java).apply {
+            putExtra("GREETING_MESSAGE", message.ifEmpty { "No greeting found" })
+            putExtra("FONT_SIZE", fontSizeSlider.value)
+        }
         startActivity(intent)
     }
 }
