@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var titleSpinner: Spinner
     private lateinit var darkModeSwitch: SwitchMaterial
     private lateinit var fontSizeSlider: Slider
-    private lateinit var colorChipGroup: ChipGroup
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -115,7 +114,6 @@ class MainActivity : AppCompatActivity() {
         titleSpinner.setSelection(0)
         darkModeSwitch.isChecked = false
         fontSizeSlider.value = 18f
-        colorChipGroup.clearCheck()
     }
 
     private fun changeActivity() {
